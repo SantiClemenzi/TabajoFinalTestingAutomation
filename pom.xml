@@ -14,30 +14,70 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
+        <!-- ============================================================
+             SELENIUM WEBDRIVER
+             ============================================================
+             Biblioteca para automatizar navegadores web.
+             Nos permite controlar Chrome, Firefox, etc. programáticamente.
+             ============================================================ -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
         </dependency>
 
+        <!-- ============================================================
+             WEBDRIVER MANAGER
+             ============================================================
+             Gestiona automáticamente los drivers de los navegadores.
+             Ya no necesitamos descargar chromedriver.exe manualmente.
+             ============================================================ -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>5.9.2</version>
         </dependency>
 
+        <!-- ============================================================
+             CUCUMBER JAVA
+             ============================================================
+             Permite escribir Step Definitions en Java.
+             Conecta los archivos .feature con código ejecutable.
+
+             Proporciona las anotaciones:
+             - @Given, @When, @Then, @And, @But
+             - @Before, @After (Hooks)
+             ============================================================ -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
             <version>${cucumber.version}</version>
         </dependency>
 
+        <!-- ============================================================
+             CUCUMBER TESTNG
+             ============================================================
+             Integración de Cucumber con TestNG.
+             Permite ejecutar tests de Cucumber usando TestNG como runner.
+
+             Proporciona:
+             - AbstractTestNGCucumberTests: Clase base para el runner
+             - Integración con reportes de TestNG
+             ============================================================ -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-testng</artifactId>
             <version>${cucumber.version}</version>
         </dependency>
 
+        <!-- ============================================================
+             TESTNG
+             ============================================================
+             Framework de testing que usamos para:
+             - Ejecutar los tests
+             - Aserciones (Assert.assertEquals, Assert.assertTrue, etc.)
+             - Anotaciones de ciclo de vida
+             ============================================================ -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -72,5 +112,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

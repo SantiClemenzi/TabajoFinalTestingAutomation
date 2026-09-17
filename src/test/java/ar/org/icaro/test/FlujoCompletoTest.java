@@ -54,6 +54,9 @@ public class FlujoCompletoTest {
         System.out.println("3: Buscar Empledo");
         pimPage.searchEmployeeByName("Amelia");
         Assert.assertTrue(pimPage.hasResults(), "Deberia haber encontrado algun empleado");
-        System.out.println(pimPage.hasResults());
+
+        System.out.println("4: Realizamos el Logout");
+        LoginPage logoutPage = dashboard.logout();
+        Assert.assertTrue(logoutPage.isOnLoginPage(), "Debería haber regresado a la pantalla de Login tras hacer logout");
     }
 }

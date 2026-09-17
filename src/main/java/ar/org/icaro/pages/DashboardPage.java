@@ -1,10 +1,9 @@
 package ar.org.icaro.pages;
 
-import ar.org.icaro.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class DashboardPage extends BasePage {
+public class DashboardPage extends BasePage{
 
     // Localizadores
     private By headerText = By.cssSelector(".oxd-topbar-header-breadcrumb-module");

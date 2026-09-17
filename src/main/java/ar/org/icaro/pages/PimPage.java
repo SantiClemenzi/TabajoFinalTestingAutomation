@@ -1,6 +1,5 @@
 package ar.org.icaro.pages;
 
-import ar.org.icaro.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -34,6 +33,8 @@ public class PimPage extends BasePage {
     public PimPage searchEmployeeByName(String employeeName) {
         type(employeeNameInput, employeeName);
         click(searchButton);
+        // Espera explícita para que el DOM procese la búsqueda
+        waitForElementToDisappear(By.cssSelector(".oxd-loading-spinner"));
         return this;
     }
 

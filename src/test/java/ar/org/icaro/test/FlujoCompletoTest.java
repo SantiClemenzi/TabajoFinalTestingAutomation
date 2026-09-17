@@ -1,6 +1,8 @@
 package ar.org.icaro.test;
 
 import ar.org.icaro.pages.DashboardPage;
+import ar.org.icaro.pages.LoginPage;
+import ar.org.icaro.pages.PimPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,7 +18,8 @@ import java.time.Duration;
 public class FlujoCompletoTest {
     private WebDriver driver;
     private WebDriverWait wait;
-    private LoginPage  loginPage;
+    private LoginPage loginPage;
+
 
 
     @BeforeMethod
@@ -40,8 +43,17 @@ public class FlujoCompletoTest {
 
     @Test(priority=1, description="FLUJO COMPLETO")
     public void completoTest() {
-        System.out.println("1: Vamos al Login");
-        DashboardPage dashboard = loginPage.goTo().loginAs("Admin","admin123");
+        System.out.println("1: Realizamos el login");
+        DashboardPage dashboard = loginPage.goTo().loginAs("Admin", "admin123");
         Assert.assertTrue(dashboard.isOnDashboardPage(), "deberia estar en el Dashboard");
+
+        System.out.println("2: Ingresamos a la seccion PIM");
+        PimPage pimPage = dashboard.goToPIM();
+        Assert.assertTrue(pimPage.isOnPimPage(), "deberia estar en la seccion de PIM");
+
+        System.out.println("3: Buscar Empledo");
+        pimPage.searchEmployeeByName("Amelia");
+        Assert.assertTrue(pimPage.hasResults(), "Deberia haber encontrado algun empleado");
+        System.out.println(pimPage.hasResults());
     }
 }

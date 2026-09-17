@@ -6,9 +6,9 @@ import org.openqa.selenium.WebDriver;
 
 
 public class LoginPage extends BasePage {
-    private By usernameField = By.id("username");
-    private By passwordField = By.id("password");
-    private By loginButton = By.id("login");
+    private By usernameField = By.name("username");
+    private By passwordField = By.name("password");
+    private By loginButton = By.cssSelector("button[type='submit']");
     private By errorMessage = By.className("oxd-alert");
     private static final String URL_BASE = "https://opensource-demo.orangehrmlive.com/";
 
@@ -33,12 +33,12 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public InventoryPage clickLogin() {
+    public DashboardPage clickLogin() {
         click(loginButton);
-        return new InventoryPage(driver);
+        return new DashboardPage(driver);
     }
 
-    public InventoryPage loginAs(String username, String password) {
+    public DashboardPage loginAs(String username, String password) {
         enterUsername(username);
         enterPassword(password);
         return clickLogin();
